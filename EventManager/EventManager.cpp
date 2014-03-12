@@ -481,7 +481,7 @@ boolean EventManager::EventQueue::queueEvent( int eventCode, int eventParam )
     if ( mInterruptSafeMode )
     {   
         // Restore previous state of interrupts 
-        __iRestore( sregSave );
+        __iRestore( &sregSave ); //changed to reference to prevent pointer error
     }
 
 #if EVENTMANAGER_DEBUG
